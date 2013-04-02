@@ -114,6 +114,17 @@ Recurring Monthly Events:
 * Org Meeting 4th Mondays        
 """
 
+projects = """
+Makers! It's time to share... what have you been hacking on or making?
+
+Reply to this email with a brief run-down of whatever projects have
+been keeping you busy.
+
+
+*** This weekly sharing encouragement idea shamelessly stolen from reMMinderbot 
+    at Milwaukee Makerspace http://groups.google.com/group/milwaukeemakerspace
+"""
+
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Send weekly events to dhmn-discuss.')
     parser.add_argument('-u', '--user')
@@ -123,6 +134,7 @@ if __name__=="__main__":
 
     import datetime
     d = datetime.date.today()
+    datestring = '{0:04d}-{1:02d}-{2:02d}'.format(d.year, d.month, d.day)
     mon = d.day #cron runs every monday
     thu = (d + datetime.timedelta(days=3)).day
     fri = (d + datetime.timedelta(days=4)).day
@@ -130,4 +142,4 @@ if __name__=="__main__":
     if thu > 0  and thu <  8: sendMail(args.user,args.password,args.recipient,"This Week - Hack/Make Meetup(1st Thursday)",harmony + footer)
     if thu > 14 and thu < 22: sendMail(args.user,args.password,args.recipient,"This Week - Hack/Make Meetup(3rd Thursday)",harmony + footer)
     if fri > 7  and fri < 15: sendMail(args.user,args.password,args.recipient,"This Week - Lunch Meetup(2nd Friday)",lunch + footer)
-
+    sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
