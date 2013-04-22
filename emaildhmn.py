@@ -99,10 +99,9 @@ Neenah, WI 54956
 
 orgmeeting = """
 Open Organizational Meeting
-Monday 8pm-10pm          
-Cambria Suites Hotel Lobby 
-3940 North Gateway Drive   
-Appleton, WI 54913         
+Monday 8:00pm
+120 N. Morrison St
+Appleton, WI 54911
 """
 
 footer = """
