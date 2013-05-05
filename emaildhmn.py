@@ -81,11 +81,11 @@ def getAttachment(attachmentFilePath):
   attachment.add_header('Content-Disposition', 'attachment',   filename=os.path.basename(attachmentFilePath))
   return attachment
 
-harmony = """
+hackmakes = """
 Open Hack-n-Make!     
 Thursday 6pm-10pm     
-Harmony Cafe 3rd Floor
-233 E College Ave     
+Appleton Makerspace powered by DHMN
+120 N. Morrison St
 Appleton, WI 54911    
 """
 
@@ -98,8 +98,9 @@ Neenah, WI 54956
 """
 
 orgmeeting = """
-Open Organizational Meeting
+Open Organizational Meeting!
 Monday 8:00pm
+Appleton Makerspace powered by DHMN
 120 N. Morrison St
 Appleton, WI 54911
 """
@@ -107,9 +108,9 @@ Appleton, WI 54911
 footer = """
 --                               
 Recurring Monthly Events:        
-* Hack/Make Meetup 1st Thursdays 
+* Public Hack/Make Meetup 1st Thursdays 
 * Makers Lunch Meetup 2nd Fridays
-* Hack/Make Meetup 3rd Thursdays 
+* Public Hack/Make Meetup 3rd Thursdays 
 * Org Meeting 4th Mondays        
 """
 
@@ -138,7 +139,7 @@ if __name__=="__main__":
     thu = (d + datetime.timedelta(days=3)).day
     fri = (d + datetime.timedelta(days=4)).day
     if mon > 21 and mon < 29: sendMail(args.user,args.password,args.recipient,"This Week - Org Meeting(4th Monday)",orgmeeting + footer)
-    if thu > 0  and thu <  8: sendMail(args.user,args.password,args.recipient,"This Week - Hack/Make Meetup(1st Thursday)",harmony + footer)
-    if thu > 14 and thu < 22: sendMail(args.user,args.password,args.recipient,"This Week - Hack/Make Meetup(3rd Thursday)",harmony + footer)
+    if thu > 0  and thu <  8: sendMail(args.user,args.password,args.recipient,"This Week - Public Hack/Make Meetup(1st Thursday)",hackmakes + footer)
+    if thu > 14 and thu < 22: sendMail(args.user,args.password,args.recipient,"This Week - Public Hack/Make Meetup(3rd Thursday)",hackmakes + footer)
     if fri > 7  and fri < 15: sendMail(args.user,args.password,args.recipient,"This Week - Lunch Meetup(2nd Friday)",lunch + footer)
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
