@@ -137,11 +137,8 @@ if __name__=="__main__":
     d = datetime.date.today()
     datestring = '{0:04d}-{1:02d}-{2:02d}'.format(d.year, d.month, d.day)
     mon = d.day #cron runs every monday
-    # thu = (d + datetime.timedelta(days=3)).day
     fri = (d + datetime.timedelta(days=4)).day
     if mon > 21 and mon < 29: sendMail(args.user,args.password,args.recipient,"This Week - Org Meeting(4th Monday)",orgmeeting + footer)
-    # if thu > 0  and thu <  8: sendMail(args.user,args.password,args.recipient,"This Week - Public Hack/Make Meetup(1st Thursday)",hackmakes + footer)
-    # if thu > 14 and thu < 22: sendMail(args.user,args.password,args.recipient,"This Week - Public Hack/Make Meetup(3rd Thursday)",hackmakes + footer)
     if fri > 7  and fri < 15: sendMail(args.user,args.password,args.recipient,"This Week - Lunch Meetup(2nd Friday)",lunch + footer)
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
     sendMail(args.user,args.password,args.recipient,"This Week - Public Hack/Make Meetup - Thursday",hackmakes + footer) # every week
