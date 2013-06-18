@@ -118,12 +118,10 @@ Recurring Monthly Events:
 projects = """
 Makers! It's time to share... what have you been hacking on or making?
 
-Reply to this email with a brief run-down of whatever projects have
-been keeping you busy.
+Reply to this email with a brief run-down of whatever projects have been keeping you busy.
 
 
-*** This weekly sharing encouragement idea shamelessly stolen from reMMinderbot 
-    at Milwaukee Makerspace http://groups.google.com/group/milwaukeemakerspace
+*** This weekly sharing encouragement idea shamelessly stolen from reMMinderbot at Milwaukee Makerspace http://groups.google.com/group/milwaukeemakerspace
 """
 
 if __name__=="__main__":
