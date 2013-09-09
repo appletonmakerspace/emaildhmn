@@ -86,7 +86,10 @@ Open Hack-n-Make!
 Thursday 6pm-10pm     
 Appleton Makerspace powered by DHMN
 120 N. Morrison St
-Appleton, WI 54911    
+Appleton, WI 54911
+
+Are you planning to attend?  RSVP on Meetup!
+http://www.meetup.com/Appleton-Makerspace-powered-by-DHMN/
 """
 
 lunch = """
