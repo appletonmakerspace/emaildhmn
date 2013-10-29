@@ -98,9 +98,9 @@ https://trello.com/b/eSPKdh9O/dhmn-project-board
 lunch = """
 Makers Lunch Meetup!   
 Friday 11:30am-1:30pm
-Hong Kong Buffet       
-145 W Wisconsin Ave    
-Neenah, WI 54956       
+Mai's Deli
+104 S Memorial Dr
+Appleton, WI 54911
 """
 
 orgmeeting = """
