@@ -88,9 +88,6 @@ Appleton Makerspace powered by DHMN
 121R N Douglas St
 Appleton, WI 54914
 
-Are you planning to attend?  RSVP on Meetup!
-http://www.meetup.com/Appleton-Makerspace-powered-by-DHMN/
-
 Want a place to track your project, or look at what others are working on?  Check out the Trello Project Board!
 https://trello.com/b/eSPKdh9O/dhmn-project-board
 """
