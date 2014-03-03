@@ -84,8 +84,8 @@ def getAttachment(attachmentFilePath):
 hackmakes = """
 Open Hack-n-Make!     
 Thursday 6pm-10pm     
-Appleton Makerspace powered by DHMN
-121R N Douglas St
+Appleton Makerspace
+121R B North Douglas St
 Appleton, WI 54914
 
 Want a place to track your project, or look at what others are working on?  Check out the Trello Project Board!
@@ -103,8 +103,8 @@ Appleton, WI 54911
 orgmeeting = """
 Open Organizational Meeting!
 Monday 8:00pm
-Appleton Makerspace powered by DHMN
-121R N Douglas St
+Appleton Makerspace
+121R B North Douglas St
 Appleton, WI 54914
 """
 
