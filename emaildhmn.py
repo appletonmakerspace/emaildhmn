@@ -92,14 +92,6 @@ Want a place to track your project, or look at what others are working on?  Chec
 https://trello.com/b/eSPKdh9O/dhmn-project-board
 """
 
-lunch = """
-Makers Lunch Meetup!   
-Friday 11:30am-1:30pm
-Mai's Deli
-104 S Memorial Dr
-Appleton, WI 54911
-"""
-
 orgmeeting = """
 Open Organizational Meeting!
 Monday 8:00pm
@@ -114,7 +106,6 @@ Recurring Weekly Events:
 * Public Hack/Make Meetup every Thursday
 
 Recurring Monthly Events:        
-* Makers Lunch Meetup 2nd Fridays
 * Org Meeting 4th Mondays        
 """
 
@@ -140,6 +131,5 @@ if __name__=="__main__":
     mon = d.day #cron runs every monday
     fri = (d + datetime.timedelta(days=4)).day
     if mon > 21 and mon < 29: sendMail(args.user,args.password,args.recipient,"This Week - Org Meeting(4th Monday)",orgmeeting + footer)
-    if fri > 7  and fri < 15: sendMail(args.user,args.password,args.recipient,"This Week - Lunch Meetup(2nd Friday)",lunch + footer)
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
     sendMail(args.user,args.password,args.recipient,"This Week - Public Hack/Make Meetup - Thursday",hackmakes + footer) # every week
