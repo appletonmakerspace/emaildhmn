@@ -103,10 +103,11 @@ Appleton, WI 54914
 footer = """
 --                               
 Recurring Weekly Events:
-* Public Hack/Make Meetup every Thursday
+* Public - Hack/Make Meetup every Thursday
+* Members - Art/Music night every Friday
 
 Recurring Monthly Events:        
-* Org Meeting 4th Mondays        
+* Public - Org Meeting 4th Mondays        
 """
 
 projects = """
