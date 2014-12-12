@@ -82,32 +82,35 @@ def getAttachment(attachmentFilePath):
   return attachment
 
 hackmakes = """
-Open Hack-n-Make!     
-Thursday 6pm-10pm     
-Appleton Makerspace
-121R B North Douglas St
-Appleton, WI 54914
+- Open Make Session! Thursday 6:00pm-10:00pm     
+- Open Make Session - Saturdays till year end! 12:00pm-5:00pm (approx.)
+"""
 
-Want a place to track your project, or look at what others are working on?  Check out the Trello Project Board!
-https://trello.com/b/eSPKdh9O/dhmn-project-board
+newlugmeeting = """
+- NEWLUG Linux Users Group Meeting! Tuesday 6:30pm-9:00pm
 """
 
 orgmeeting = """
-Open Organizational Meeting!
-Monday 8:00pm
-Appleton Makerspace
-121R B North Douglas St
-Appleton, WI 54914
+- Open Organizational Meeting! Monday 8:00pm
 """
 
 footer = """
+
 --                               
 Recurring Weekly Events:
-* Public - Hack/Make Meetup every Thursday
-* Members - Art/Music night every Friday
+* Public - Open Make Session every Thursday
+* Members - Art/Music night Friday
 
 Recurring Monthly Events:        
-* Public - Org Meeting 4th Mondays        
+* Public - NEWLUG Meeting 2nd Tuesdays
+* Public - Org Meeting 4th Mondays
+
+Want a place to track your project, or look at what others are working on?  Check out the Trello Project Board!
+https://trello.com/b/eSPKdh9O/dhmn-project-board
+
+Appleton Makerspace
+121R B North Douglas St
+Appleton, WI 54914
 """
 
 projects = """
@@ -131,6 +134,8 @@ if __name__=="__main__":
     datestring = '{0:04d}-{1:02d}-{2:02d}'.format(d.year, d.month, d.day)
     mon = d.day #cron runs every monday
     fri = (d + datetime.timedelta(days=4)).day
-    if mon > 21 and mon < 29: sendMail(args.user,args.password,args.recipient,"This Week - Org Meeting(4th Monday)",orgmeeting + footer)
+    this_week_email_body = ""
+    if mon > 7  and mon < 15: this_week_email_body += newlugmeeting) #2nd week
+    if mon > 21 and mon < 29: this_week_email_body += orgmeeting) #4th week
+    sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + hackmakes + footer) # every week
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
-    sendMail(args.user,args.password,args.recipient,"This Week - Public Hack/Make Meetup - Thursday",hackmakes + footer) # every week
