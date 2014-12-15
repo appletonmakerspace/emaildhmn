@@ -135,7 +135,7 @@ if __name__=="__main__":
     mon = d.day #cron runs every monday
     fri = (d + datetime.timedelta(days=4)).day
     this_week_email_body = ""
-    if mon > 7  and mon < 15: this_week_email_body += newlugmeeting) #2nd week
-    if mon > 21 and mon < 29: this_week_email_body += orgmeeting) #4th week
+    if mon > 7  and mon < 15: this_week_email_body += newlugmeeting #2nd week
+    if mon > 21 and mon < 29: this_week_email_body += orgmeeting #4th week
     sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + hackmakes + footer) # every week
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
