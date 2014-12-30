@@ -1,5 +1,5 @@
 """
-Copyright (c) 2012 Mike Putnam <mike@theputnams.net>
+Copyright (c) 2015 Mike Putnam <mike@theputnams.net>
 
 Permission to use, copy, modify, and distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -83,7 +83,6 @@ def getAttachment(attachmentFilePath):
 
 hackmakes = """
 - Open Make Session! Thursday 6:00pm-10:00pm     
-- Open Make Session - Saturdays till year end! 12:00pm-5:00pm (approx.)
 """
 
 newlugmeeting = """
