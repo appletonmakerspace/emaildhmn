@@ -82,7 +82,7 @@ def getAttachment(attachmentFilePath):
   return attachment
 
 hackmakes = """
-- Open Make Session! Thursday 6:00pm-10:00pm     
+- Open Make Session! Thursday 6:00pm-10:00pm
 """
 
 newlugmeeting = """
@@ -93,14 +93,19 @@ orgmeeting = """
 - Open Organizational Meeting! Monday 8:00pm
 """
 
+codercooperative = """
+- Coder Cooperative! Monday 7:00pm-9:00pm http://appletonmakerspace.org/codercooperative
+"""
+
 footer = """
 
---                               
+--
 Recurring Weekly Events:
+* Public - Coder Cooperative every Monday
 * Public - Open Make Session every Thursday
 * Members - Art/Music night Friday
 
-Recurring Monthly Events:        
+Recurring Monthly Events:
 * Public - NEWLUG Meeting 2nd Tuesdays
 * Public - Org Meeting 4th Mondays
 
@@ -136,5 +141,5 @@ if __name__=="__main__":
     this_week_email_body = ""
     if mon > 7  and mon < 15: this_week_email_body += newlugmeeting #2nd week
     if mon > 21 and mon < 29: this_week_email_body += orgmeeting #4th week
-    sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + hackmakes + footer) # every week
+    sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + hackmakes + codercooperative + footer) # every week
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
