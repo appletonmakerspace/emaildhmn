@@ -97,17 +97,13 @@ codercooperative = """
 - Coder Cooperative! Monday 7:00pm-9:00pm http://appletonmakerspace.org/codercooperative
 """
 
+makethespace = """
+- Make the Space night! Monday 6:00pm
+"""
+
 footer = """
 
 --
-Recurring Weekly Events:
-* Public - Coder Cooperative every Monday
-* Public - Open Make Session every Thursday
-* Members - Art/Music night Friday
-
-Recurring Monthly Events:
-* Public - NEWLUG Meeting 2nd Tuesdays
-* Public - Org Meeting 4th Mondays
 
 Want a place to track your project, or look at what others are working on?  Check out the Trello Project Board!
 https://trello.com/b/eSPKdh9O/dhmn-project-board
@@ -141,5 +137,5 @@ if __name__=="__main__":
     this_week_email_body = ""
     if mon > 7  and mon < 15: this_week_email_body += newlugmeeting #2nd week
     if mon > 21 and mon < 29: this_week_email_body += orgmeeting #4th week
-    sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + hackmakes + codercooperative + footer) # every week
+    sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + makethespace + hackmakes + codercooperative + footer) # every week
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
