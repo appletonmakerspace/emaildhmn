@@ -81,28 +81,7 @@ def getAttachment(attachmentFilePath):
   attachment.add_header('Content-Disposition', 'attachment',   filename=os.path.basename(attachmentFilePath))
   return attachment
 
-hackmakes = """
-- Open Make Session! Thursday 6:00pm-10:00pm
-"""
-
-newlugmeeting = """
-- NEWLUG Linux Users Group Meeting! Tuesday 6:30pm-9:00pm
-"""
-
-orgmeeting = """
-- Open Organizational Meeting! Monday 8:00pm
-"""
-
-codercooperative = """
-- Coder Cooperative! Monday 7:00pm-9:00pm http://appletonmakerspace.org/codercooperative
-"""
-
-makethespace = """
-- Make the Space night! Monday 6:00pm
-"""
-
 footer = """
-
 --
 
 Want a place to track your project, or look at what others are working on?  Check out the Trello Project Board!
@@ -124,18 +103,21 @@ Reply to this email with a brief run-down of whatever projects have been keeping
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser(description='Send weekly events to dhmn-discuss.')
-    parser.add_argument('-u', '--user')
-    parser.add_argument('-p', '--password')
+    parser.add_argument('--user',help='Gmail user.')
+    parser.add_argument('--password',help='Gmail password.')
+    parser.add_argument('--service_account_name',help='Google Calendar API Service Account name')
+    parser.add_argument('--path_to_key',help='Path to Google Calendar API private key')
     parser.add_argument('recipient')
     args = parser.parse_args()
 
     import datetime
     d = datetime.date.today()
     datestring = '{0:04d}-{1:02d}-{2:02d}'.format(d.year, d.month, d.day)
-    mon = d.day #cron runs every monday
-    fri = (d + datetime.timedelta(days=4)).day
-    this_week_email_body = ""
-    if mon > 7  and mon < 15: this_week_email_body += newlugmeeting #2nd week
-    if mon > 21 and mon < 29: this_week_email_body += orgmeeting #4th week
-    sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + makethespace + hackmakes + codercooperative + footer) # every week
+
+    from appletonmakerspaceweeklycalendar import AppletonMakerspaceWeeklyCalendar
+    calendar = AppletonMakerspaceWeeklyCalendar(args.service_account_name, args.path_to_key)
+
+    this_week_email_body = calendar.fetch_events()
+    sendMail(args.user,args.password,args.recipient,"This Week at the Appleton Makerspace",this_week_email_body + footer) # every week
     sendMail(args.user,args.password,args.recipient,"What Have You Been Hacking/Making? ["+datestring+" edition]",projects) #every week
+
