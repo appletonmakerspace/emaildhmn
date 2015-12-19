@@ -53,7 +53,7 @@ def sendMail(u, p, r, subject, text):
 footer = """
 
 
-
+--
 Want a place to track your project, or look at what others are working on?
 
 Check out the Trello Project Board! https://trello.com/b/eSPKdh9O/dhmn-project-board
@@ -91,7 +91,7 @@ def formatEvents(events):
             )
         )
         lines.append(
-            '- {summary}! {start}-{end}'.format(
+            '    - {summary}! {start}-{end}'.format(
                 summary=event['summary'],
                 start=start.strftime("%A %-I:%M%p"),
                 end=end.strftime("%-I:%M%p"),
@@ -146,7 +146,20 @@ if __name__ == "__main__":
         datetime.timedelta(days=int(args.days)),
     )
 
-    this_week_email_body = formatEvents(calendar.fetch_events())
+    from recentwikiedits import RecentWikiEdits
+    recent_wiki_edits = RecentWikiEdits()
+
+    separator = '\n---------------------------------------------------------\n'
+    this_week_email_body = separator
+    this_week_email_body += 'This Week at the Appleton Makerspace'
+    this_week_email_body += separator + '\n'
+    this_week_email_body += formatEvents(calendar.fetch_events())
+    this_week_email_body += '\n\n'
+    this_week_email_body += separator
+    this_week_email_body += 'Recent Wiki Edits'
+    this_week_email_body += separator + '\n'
+    this_week_email_body += recent_wiki_edits.fetch()
+    this_week_email_body += '\n\n'
 
     sendMail(
         args.user,
